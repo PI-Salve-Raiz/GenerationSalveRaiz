@@ -1,12 +1,10 @@
 package com.generation.salveraiz.model;
 
-
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,92 +16,89 @@ import jakarta.validation.constraints.NotNull;
 
 import jakarta.validation.constraints.Size;
 
-
-
-
 @Entity
 @Table(name = "tb_Postagem")
 public class Postagem {
 
-		
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-		@NotNull(message = "titulo é obrigatório")
-		private String titulo;
-		
-		@NotNull
-		@Size(min = 10, max = 500)
-		private String texto;
-		
-		@UpdateTimestamp
-		private LocalDateTime data;
-		
-		@NotNull
+	@NotNull(message = "titulo é obrigatório")
+	private String titulo;
 
-		private String foto;
-		
-		
+	@NotNull
+	@Size(min = 10, max = 500)
+	private String texto;
 
-		private Long curtidas;
+	@UpdateTimestamp
+	private LocalDateTime data;
 
-		
-		@ManyToOne
-		@JsonIgnoreProperties("postagem") 
-		private Tema tema;   
-		
-		
-		
-		public Long getId() {
-			return id;
-		}
+	@NotNull
+	private String foto;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	private Long curtidas;
 
-		public String getTitulo() {
-			return titulo;
-		}
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Tema tema;
 
-		public void setTitulo(String titulo) {
-			this.titulo = titulo;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public String getTexto() {
-			return texto;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public void setTexto(String texto) {
-			this.texto = texto;
-		}
+	public String getTitulo() {
+		return titulo;
+	}
 
-		public LocalDateTime getData() {
-			return data;
-		}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
-		public void setData(LocalDateTime data) {
-			this.data = data;
-		}
+	public String getTexto() {
+		return texto;
+	}
 
-		public String getFoto() {
-			return foto;
-		}
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
 
-		public void setFoto(String foto) {
-			this.foto = foto;
-		}
+	public LocalDateTime getData() {
+		return data;
+	}
 
-		public Long getCurtidas() {
-			return curtidas;
-		}
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
 
-		public void setCurtidas(Long curtidas) {
-			this.curtidas = curtidas;
-		}
-		
-		
-		
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public Long getCurtidas() {
+		return curtidas;
+	}
+
+	public void setCurtidas(Long curtidas) {
+		this.curtidas = curtidas;
+	}
+
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+	
+	
 
 }
