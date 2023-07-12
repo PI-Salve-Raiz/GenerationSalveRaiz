@@ -14,18 +14,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
-<<<<<<< Updated upstream
-import io.jsonwebtoken.security.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
-=======
-<<<<<<< HEAD
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.security.SignatureException;
-=======
-import io.jsonwebtoken.security.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
->>>>>>> 92f2e21cbffe9799eb8ce1f1d4b8033306bc0a4b
->>>>>>> Stashed changes
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -64,7 +54,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             }
             filterChain.doFilter(request, response);
 
-<<<<<<< HEAD
         }catch(ExpiredJwtException | UnsupportedJwtException | MalformedJwtException 
                 | SignatureException | ResponseStatusException e){
             response.setStatus(HttpStatus.FORBIDDEN.value());
@@ -72,30 +61,5 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
     }
 }
-=======
-			if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-
-				if (jwtService.validateToken(token, userDetails)) {
-					UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,
-							null, userDetails.getAuthorities());
-					authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-					SecurityContextHolder.getContext().setAuthentication(authToken);
-				}
-
-			}
-			filterChain.doFilter(request, response);
-
-		} catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException
-				| ResponseStatusException e) {
-			response.setStatus(HttpStatus.FORBIDDEN.value());
-			return;
-		}
-	}
-}
 	
 
-<<<<<<< Updated upstream
-=======
->>>>>>> 92f2e21cbffe9799eb8ce1f1d4b8033306bc0a4b
->>>>>>> Stashed changes

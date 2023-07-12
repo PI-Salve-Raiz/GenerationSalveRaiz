@@ -33,10 +33,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	}
 }
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> 92f2e21cbffe9799eb8ce1f1d4b8033306bc0a4b
->>>>>>> Stashed changes
