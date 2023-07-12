@@ -1,5 +1,4 @@
 package com.generation.salveraiz.service;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +14,17 @@ import com.generation.salveraiz.model.Usuario;
 import com.generation.salveraiz.model.UsuarioLogin;
 import com.generation.salveraiz.repository.UsuarioRepository;
 import com.generation.salveraiz.security.JwtService;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 
 
+>>>>>>> 92f2e21cbffe9799eb8ce1f1d4b8033306bc0a4b
 
 @Service
 public class UsuarioService {
-
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -63,10 +67,10 @@ public class UsuarioService {
 
 	public Optional<UsuarioLogin> autenticarUsuario(Optional<UsuarioLogin> usuarioLogin) {
         
-        // Gera o Objeto de autenticação e guarda na variavel credenciais
+        // Gera o Objeto de autenticação
 		var credenciais = new UsernamePasswordAuthenticationToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha());
 		
-        // Responsavel pela autenticação do usuário
+        // Autentica o Usuario
 		Authentication authentication = authenticationManager.authenticate(credenciais);
         
         // Se a autenticação foi efetuada com sucesso
@@ -109,4 +113,3 @@ public class UsuarioService {
 	}
 
 }
-
